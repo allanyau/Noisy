@@ -28,13 +28,8 @@ data = loadEntrainData('L16-caud023.h5',treatments,5);
 
 data = findbursts_gui(data, 'threshold', [0.41833 0.296844 0.188282], 'interburstdur', [0.2 0.15 0.17], 'minspikes', [4 2 2], 'quiet');
 
-good=data.burstt>404;
-[mn1,R1] = angmean(2*pi*data.burstphase(good(:,1),1));
-phasemn(5,1) = mod(mn1 / (2*pi), 1);
-R(5,1) = R1;
-[mn1,R1] = angmean(2*pi*data.burstphase(good(:,2),2));
-phasemn(5,2) = mod(mn1 / (2*pi), 1);
-R(5,2) = R1;
-
+[mn1,R1] = angmean(2*pi*data.burstphase);
+phasemn(5,:) = mod(mn1 / (2*pi), 1);
+R(5,:) = R1;
 stimfreq(5) = treatments.frequencyhz(1);
 noiseamp(5) = treatments.noisestddeg(1);
