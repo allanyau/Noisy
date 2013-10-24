@@ -35,6 +35,9 @@ R(5,1) = R1;
 [mn1,R1] = angmean(2*pi*data.burstphase(good(:,2),2));
 phasemn(5,2) = mod(mn1 / (2*pi), 1);
 R(5,2) = R1;
+[mn1,R1] = angmean(2*pi*data.burstphase(good(:,3),3));
+phasemn(5,2) = mod(mn1 / (2*pi), 1);
+R(5,3) = R1;
 
 stimfreq(5) = treatments.frequencyhz(1);
 noiseamp(5) = treatments.noisestddeg(1);
